@@ -1,0 +1,192 @@
+<!-- 
+
+	ActionMenu 
+	Created by WolfKnight
+	Additional help from lowheartrate, TheStonedTurtle, and Briglair. 
+
+ -->
+
+<html>
+    <head>
+        <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+        <script src="ui.js" type="text/javascript"></script>
+        <link href="ui.css" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <body>
+        <div id="actionmenu" style="display: none; >
+        	<!-- 
+        		This mainmenu div should be left as it is, you should change the buttons though.
+
+        		If you want to make a submenu, then you must create a new div, with the ID of the 
+        		div being the data-sub attribute of the button that will open it. For example, the 
+        		below button Example Submenu, has the data-sub attribute of "examplesubmenu", which
+        		is the same id as the div below. All submenus must also have a data-parent attribute. 
+        	 -->
+        	<div id="mainmenu">
+				<button id="phonebutton" class="menuoption" data-action="phone">TELEFON</button>
+				<button id="licensebutton" class="menuoption" data-sub="licenses">IRATOK</button>
+				<button id="licensebutton" class="menuoption" data-sub="walktypes">JARASTIPUSOK</button>
+				<button id="vehiclebutton" class="menuoption" data-sub="vehicle">JARMU</button>
+				<button id="inventorybutton" class="menuoption" data-action="inventory">INVENTORY</button>
+				<button class="menuoption" data-sub="servicesubmenu">SZOLGALTATASOK</button>
+				<button id="policebutton" class="menuoption" data-sub="police" style="background-color #616060">RENDOR</button>
+				<button id="pdcommandbutton" class="menuoption" data-sub="police-command" style="background-color: #616060">FONOK MENU</button>
+				<button id="emsbutton" class="menuoption" data-sub="ems" style="background-color: #616060">EMS</button>
+				<button id="emscommandbutton" class="menuoption" data-sub="ems-command" style="background-color: #616060">FONOK MENU</button>
+			</div>
+			
+			<div id="servicesubmenu" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="service-ems">ORVOS KERESE</button>
+				<button class="menuoption" data-action="service-taxi">TAXI KERESE</button>
+				<button class="menuoption" data-action="service-tow">VONTATO KERESE</button>
+			</div>
+			
+			<div id="licenses" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="license-id">IGAZOLVANY MUTATASA</button>
+				<button class="menuoption" data-action="license-driver">JOGOSITVANY MUTATASA</button>
+				<button class="menuoption" data-action="license-pilot">PILOTAJOGOSITVANY MUTATASA</button>
+				<button class="menuoption" data-action="license-weapon">FEGYVERENGEDELY MUTATASA</button>
+			</div>
+			<div id="walktypes" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption double" data-action="walktype-set-default">DEFAULT</button>
+				<button class="menuoption double" data-action="walktype-set-hurry">HURRY</button>
+				<button class="menuoption double" data-action="walktype-set-business">BUSINESS</button>
+				<button class="menuoption double" data-action="walktype-set-brave">brave</button>
+				<button class="menuoption double" data-action="walktype-set-slightlydrunk">slightly drunk</button>
+				<button class="menuoption double" data-action="walktype-set-tough_guy">tough guy</button>
+				<button class="menuoption double" data-action="walktype-set-sassy">sassy</button>
+				<button class="menuoption double" data-action="walktype-set-sad">sad</button>
+				<button class="menuoption double" data-action="walktype-set-posh">posh</button>
+				<button class="menuoption double" data-action="walktype-set-non_chalant">non chalant</button>
+				<button class="menuoption double" data-action="walktype-set-hobo">hobo</button>
+				<button class="menuoption double" data-action="walktype-set-money">money</button>
+				<button class="menuoption double" data-action="walktype-set-swagger">swagger</button>
+				<button class="menuoption double" data-action="walktype-set-joy">joy</button>
+				<button class="menuoption double" data-action="walktype-set-powerwalk">powerwalk</button>
+				<button class="menuoption double" data-action="walktype-set-shadyped">shady</button>
+				<button class="menuoption double" data-action="walktype-set-tired">tired</button>
+				<button class="menuoption double" data-action="walktype-set-sexy">sexy</button>
+				<button class="menuoption double" data-action="walktype-set-maneater">maneater</button>
+				<button class="menuoption double" data-action="walktype-set-chichi">chichi</button>
+			</div>
+			<div id="handcuffs-menu" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="hdc-escort" style="background-color:  #616060;">Vezetes</button>
+				<button class="menuoption" data-action="hdc-cuff" style="background-color:  #616060;">Bilincs</button>
+				<button class="menuoption" data-action="hdc-search" style="background-color:  #616060;">Atkutatas</button>		
+				<!--
+				<button class="menuoption" data-action="hdc-rob" style="background-color: #c6c6c6;">Rob Person</button>		
+				<button class="menuoption" data-action="hdc-takephone" style="background-color: #c6c6c6;">Take Phone</button>		
+				-->
+			</div>
+			<div id="vehicle" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="vehicle-race" style="background-color:#f372ff">VERSENY INDITASA</button>
+				<button class="menuoption" data-action="vehicle-engine">MOTOR</button>
+				<button class="menuoption" data-action="vehicle-keys">KULCSOK ADASA</button>
+				<button class="menuoption" data-sub="vehicle-doors">AJTOK</button>
+				<button class="menuoption" data-sub="vehicle-windows">ABLAKOK</button>
+				<button class="menuoption" data-sub="vehicle-seats">ULESEK</button>
+			</div>
+			<div id="vehicleinventory" data-parent="mainmenu" style="display: none;">
+			</div>
+			<div id="vehicle-windows" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="vehicle-window-*">MIND VALTOZTATASA</button>
+				<button class="menuoption" data-action="vehicle-window-1">ELSO BAL</button>
+				<button class="menuoption" data-action="vehicle-window-2">ELSO JOBB</button>
+				<button class="menuoption" data-action="vehicle-window-3">HATSO BAL</button>
+				<button class="menuoption" data-action="vehicle-window-4">HATSO JOBB</button>
+			</div>
+			<div id="vehicle-doors" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="vehicle-door-*">MIND BEZARASA</button>
+				<button class="menuoption" data-action="vehicle-door-1">MOTORHAZTETO</button>
+				<button class="menuoption" data-action="vehicle-door-2">BAL ELSO</button>
+				<button class="menuoption" data-action="vehicle-door-3">JOBB ELSO</button>
+				<button class="menuoption" data-action="vehicle-door-4">BAL HATSO</button>
+				<button class="menuoption" data-action="vehicle-door-5">JOBB HATSO</button>
+				<button class="menuoption" data-action="vehicle-door-6">CSOMAGTARTO</button>
+			</div>
+			<div id="vehicle-seats" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="vehicle-seat-1">VEZETO ULES</button>
+				<button class="menuoption" data-action="vehicle-seat-2">ANYOS ULES</button>
+				<button class="menuoption" data-action="vehicle-seat-3">BAL HATSO</button>
+				<button class="menuoption" data-action="vehicle-seat-4">JOBB HATSO</button>
+			</div>
+			
+			<div id="ems" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="ems-escort" style="background-color #616060">Vezetes</button>
+				<button class="menuoption" data-action="ems-vehicle" style="background-color #616060">Jarmube berakas/kivetel</button>
+				<button class="menuoption" data-action="ems-revive" style="background-color #616060">Ujraelesztes</button>
+			</div>
+			<div id="ems-command" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="ems-command-level" style="background-color #616060">Jatekos rangjanak beallitasa</button>
+			</div>
+			
+			<div id="police" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-sub="police-person" style="background-color: #616060">SZEMELY</button>
+				<button class="menuoption" data-sub="police-vehicle" style="background-color #616060">JARMU</button>
+				<button class="menuoption" data-sub="police-k9" style="background-color: #616060">K9-ES EGYSEG</button>
+				<button class="menuoption" data-sub="police-misc" style="background-color #616060">EGYEB</button>
+			</div>
+			<div id="police-k9" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="police-k9-toggle" style="background-color #616060">K9-ES KUTYA</button>
+				<button class="menuoption" data-action="police-k9-vehicle" style="background-color: #616060">JARMUBE BERAKAS/KIVETEL</button>
+				<button class="menuoption" data-sub="police-k9-actions">AKCIOK</button>
+			</div>
+			<div id="police-k9-actions" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="police-k9-action-sit" style="background-color#616060">UL</button>
+				<button class="menuoption" data-action="police-k9-action-laydown" style="background-color#616060">FEKSZIK</button>
+				<button class="menuoption" data-action="police-k9-follow" style="background-color#616060">KOVET</button>
+				<button class="menuoption" data-action="police-k9-searchperson" style="background-color#616060">KERESES (EMBER)</button>
+			</div>
+			<div id="police-command" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-sub="police-command-licenses">ENGEDELY ADASA</button>
+				<button class="menuoption" data-action="police-command-duty" style="background-color #616060">Szolgalat leadasa</button>
+				<button class="menuoption" data-action="police-command-duty1" style="background-color #616060">Jatekos szolgalat leadasa/felvetele</button>
+				<button class="menuoption" data-action="police-command-level" style="background-color #616060">Jatekos rangjanak beallitasa</button>
+			</div>
+			<div id="police-command-licenses" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="police-command-license-driver" style="background-color #616060">Jogositvany ($500)</button>
+				<button class="menuoption" data-action="police-command-license-pilot" style="background-color #616060">Pilota engedely ($75k)</button>
+				<button class="menuoption" data-action="police-command-license-weapon" style="background-color #616060">Fegyverengedely ($2.5k)</button>
+			</div>
+			<div id="police-person" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-sub="police-person-licenses" >Engedelyek</button>
+				<button class="menuoption" data-sub="police-person-searching" >Atkutatas</button>
+				<!-- <button class="menuoption" data-action="police-escort" style="background-color#616060">Escort</button> -->
+				<button class="menuoption" data-action="police-putinveh" style="background-color #616060">Jarmube berakas/kivetel</button>
+				<!-- <button class="menuoption" data-action="police-handcuffs" style="background-color#616060">Toggle Handcuffs</button> -->
+				<button class="menuoption" data-action="police-revive" style="background-color: #ff8e8e">Ujraelesztes</button>
+			</div>
+			<div id="police-person-searching" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="police-search-cpic" style="background-color:#616060">CPIC</button>
+				<button class="menuoption" data-action="police-search-all" style="background-color #616060">Atkutatas <b>ALL</b></button>
+				<button class="menuoption" data-action="police-search-inventory" style="background-color #616060">Inventory atkutatas</button>
+				<button class="menuoption" data-action="police-search-weapons" style="background-color #616060">Fegyverek atkutatasa</button>
+				<button class="menuoption" data-action="police-search-money" style="background-color #616060">Penz atkutatasa</button>
+				<button class="menuoption" data-action="police-search-strip" style="background-color #616060"><b>STRIP INDIVIDUAL</b></button>
+				
+			</div>
+			<div id="police-person-licenses" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="police-licenses-all" style="background-color #616060"><b>MINDEN</b>ENGEDELY</button>
+				<button class="menuoption" data-action="police-licenses-id" style="background-color #616060">IGAZOLVANY MEGNEZESE</button>
+				<button class="menuoption" data-action="police-licenses-driver" style="background-color #616060">JOGOSITVANY MEGNEZESE</button>
+				<button class="menuoption" data-action="police-licenses-pilot" style="background-color #616060">PILOTA ENGEDELY MEGNEZESE</button>
+				<button class="menuoption" data-action="police-licenses-weapon" style="background-color #616060">FEGYVERENGEDELY MEGNEZESE</button>
+			</div>
+			<div id="police-vehicle" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="police-impound" style="background-color #616060">Lefoglalas (ingyenes)</button>
+				<button class="menuoption" data-action="police-impound2" style="background-color #616060">Lefoglalas ($2.5k)</button>
+				<button class="menuoption" data-action="police-runplate" style="background-color #616060">Run Plate</button>
+				<button class="menuoption" data-action="police-boot" style="background-color #616060">Boot</button>
+				<button class="menuoption" data-action="police-unboot" style="background-color #616060">Unboot</button>
+			</div>
+			
+			<div id="inventorysubmenu" data-parent="mainmenu" style="display: none;">
+				<button class="menuoption" data-action="exit">FOR SOME REASON IT BROKE IM SORRY</button> 
+			</div>
+			
+			<!-- Do not remove this or you will not be able to exit the menu --> 
+			<button id="exitbutton" class="menuoption" data-action="exit">Kilepes</button>
+        </div>
+    </body>
+</html>

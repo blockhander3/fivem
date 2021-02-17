@@ -1,0 +1,1 @@
+C:\fivem\FXServer.exe
